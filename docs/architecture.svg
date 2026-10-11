@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+
+  <!-- Postes des soigneurs -->
+  <rect x="330" y="12" width="300" height="46" rx="6" fill="#eef3fb" stroke="#2f6fb3"/>
+  <text x="480" y="31" text-anchor="middle" font-weight="bold">Postes des soigneurs (PC, tablette)</text>
+  <text x="480" y="48" text-anchor="middle">navigateur : front web, client MQTT intégré</text>
+
+  <!-- Batiment principal -->
+  <rect x="10" y="80" width="640" height="400" rx="8" fill="#fafafa" stroke="#888" stroke-dasharray="6 4"/>
+  <text x="22" y="100" font-weight="bold" fill="#555">Bâtiment principal</text>
+
+  <!-- Baie reseau -->
+  <rect x="240" y="120" width="260" height="170" rx="6" fill="#fff6e6" stroke="#c07a00"/>
+  <text x="370" y="140" text-anchor="middle" font-weight="bold">Baie réseau (sur onduleur)</text>
+  <rect x="255" y="150" width="230" height="58" rx="4" fill="#fff" stroke="#c07a00"/>
+  <text x="370" y="167" text-anchor="middle" font-weight="bold">Serveur Raspberry Pi 5 (Docker)</text>
+  <text x="370" y="183" text-anchor="middle">Mosquitto : 1883 MQTT, 9001 WebSocket</text>
+  <text x="370" y="199" text-anchor="middle">nginx : front web (8090)</text>
+  <rect x="255" y="216" width="110" height="60" rx="4" fill="#fff" stroke="#c07a00"/>
+  <text x="310" y="234" text-anchor="middle" font-weight="bold">Routeur / switch</text>
+  <text x="310" y="250" text-anchor="middle">+ point d'accès</text>
+  <text x="310" y="266" text-anchor="middle">Wi-Fi 2,4 GHz</text>
+  <rect x="375" y="216" width="110" height="60" rx="4" fill="#fff" stroke="#c07a00"/>
+  <text x="430" y="234" text-anchor="middle" font-weight="bold">Passerelle LoRa</text>
+  <text x="430" y="250" text-anchor="middle">LilyGO LoRa32</text>
+  <text x="430" y="266" text-anchor="middle">868 MHz → MQTT</text>
+
+  <!-- Salles -->
+  <rect x="25" y="120" width="190" height="70" rx="6" fill="#eef8f0" stroke="#1e9e5a"/>
+  <text x="120" y="139" text-anchor="middle" font-weight="bold">Salle désertique DES (12 m)</text>
+  <text x="120" y="156" text-anchor="middle">6 nodes ESP32 (terrariums)</text>
+  <text x="120" y="172" text-anchor="middle">+ 1 node de salle</text>
+
+  <rect x="25" y="205" width="190" height="70" rx="6" fill="#eef8f0" stroke="#1e9e5a"/>
+  <text x="120" y="224" text-anchor="middle" font-weight="bold">Salle tropicale TRO (18 m)</text>
+  <text x="120" y="241" text-anchor="middle">6 nodes ESP32 (terrariums)</text>
+  <text x="120" y="257" text-anchor="middle">+ 1 node de salle</text>
+
+  <rect x="25" y="290" width="190" height="70" rx="6" fill="#eef8f0" stroke="#1e9e5a"/>
+  <text x="120" y="309" text-anchor="middle" font-weight="bold">Soins intensifs SOI (9 m)</text>
+  <text x="120" y="326" text-anchor="middle">3 nodes ESP32 (bacs)</text>
+  <text x="120" y="342" text-anchor="middle">+ 1 node de salle</text>
+
+  <rect x="400" y="380" width="235" height="80" rx="6" fill="#fdf0e8" stroke="#d9480f"/>
+  <text x="517" y="399" text-anchor="middle" font-weight="bold">Portes du bâtiment</text>
+  <text x="517" y="416" text-anchor="middle">entrée, sas sanitaire, local nourriture</text>
+  <text x="517" y="433" text-anchor="middle">3 nodes RAK4631 + accu 18650</text>
+  <text x="517" y="450" text-anchor="middle">(contact reed, réveil sur interruption)</text>
+
+  <!-- Annexe QUA -->
+  <rect x="680" y="120" width="270" height="170" rx="8" fill="#fafafa" stroke="#888" stroke-dasharray="6 4"/>
+  <text x="692" y="140" font-weight="bold" fill="#555">Annexe (42 m, 2 murs béton)</text>
+  <rect x="695" y="152" width="240" height="42" rx="4" fill="#fff6e6" stroke="#c07a00"/>
+  <text x="815" y="170" text-anchor="middle" font-weight="bold">Point d'accès Wi-Fi local</text>
+  <text x="815" y="186" text-anchor="middle">(sur onduleur)</text>
+  <rect x="695" y="210" width="240" height="66" rx="6" fill="#eef8f0" stroke="#1e9e5a"/>
+  <text x="815" y="229" text-anchor="middle" font-weight="bold">Quarantaine QUA</text>
+  <text x="815" y="246" text-anchor="middle">4 nodes ESP32 (terrariums)</text>
+  <text x="815" y="262" text-anchor="middle">+ 1 node de salle</text>
+
+  <!-- Exterieur -->
+  <rect x="680" y="380" width="270" height="80" rx="6" fill="#fdf0e8" stroke="#d9480f"/>
+  <text x="815" y="399" text-anchor="middle" font-weight="bold">Enclos extérieurs EXT (65 m)</text>
+  <text x="815" y="416" text-anchor="middle">2 nodes RAK4631 + accu 18650</text>
+  <text x="815" y="433" text-anchor="middle">2 DS18B20, VEML7700, reed</text>
+  <text x="815" y="450" text-anchor="middle">veille profonde, mesure / 5 min</text>
+
+  <!-- Liens Wi-Fi (bleu pointille) -->
+  <g stroke="#2f6fb3" stroke-width="2" stroke-dasharray="5 4" fill="none">
+    <path d="M215,155 L255,240"/>
+    <path d="M215,240 L255,246"/>
+    <path d="M215,325 L255,252"/>
+    <path d="M815,194 L815,210"/>
+  </g>
+  <text x="222" y="200" fill="#2f6fb3">Wi-Fi</text>
+
+  <!-- Ethernet baie -> annexe (trait plein) -->
+  <path d="M500,175 L695,175" stroke="#333" stroke-width="3" fill="none"/>
+  <text x="597" y="168" text-anchor="middle">câble Ethernet</text>
+
+  <!-- LoRa (orange pointille) -->
+  <g stroke="#d9480f" stroke-width="2" stroke-dasharray="2 4" fill="none">
+    <path d="M500,380 L440,276"/>
+    <path d="M760,380 L470,276"/>
+  </g>
+  <text x="575" y="345" fill="#d9480f">LoRa 868 MHz</text>
+
+  <!-- Navigateur -> broker : MQTT over WebSocket -->
+  <path d="M480,58 L400,150" stroke="#444" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="452" y="108">MQTT over WebSocket (9001)</text>
+
+  <!-- Legende -->
+  <rect x="10" y="500" width="940" height="110" rx="6" fill="#ffffff" stroke="#ccc"/>
+  <text x="25" y="522" font-weight="bold">Légende et flux</text>
+  <line x1="25" y1="542" x2="70" y2="542" stroke="#2f6fb3" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="80" y="546">Wi-Fi : nodes sur secteur, MQTT/TCP 1883 vers le broker (clientId = id du node)</text>
+  <line x1="25" y1="564" x2="70" y2="564" stroke="#d9480f" stroke-width="2" stroke-dasharray="2 4"/>
+  <text x="80" y="568">LoRa 868 MHz : nodes sur accu ; la passerelle publie en MQTT sous l'id du node et ajoute rxTs</text>
+  <line x1="25" y1="586" x2="70" y2="586" stroke="#333" stroke-width="3"/>
+  <text x="80" y="590">Ethernet : baie ↔ annexe ; serveur, switch et points d'accès sur onduleur</text>
+  <text x="620" y="546">Topics : reptiles/&lt;zone&gt;/&lt;node&gt;/...</text>
+  <text x="620" y="568">Broker : authentification + ACL par rôle</text>
+  <text x="620" y="590">Front : sans backend, alertes calculées dans le navigateur</text>
+</svg>
