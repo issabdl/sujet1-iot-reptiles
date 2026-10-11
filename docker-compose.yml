@@ -23,5 +23,13 @@ services:
         max-size: "10m"
     restart: unless-stopped
 
+  front:
+    image: nginx:alpine
+    ports:
+      - "8090:80"
+    volumes:
+      - ./front:/usr/share/nginx/html:ro
+    restart: unless-stopped
+
 volumes:
   broker-data:
