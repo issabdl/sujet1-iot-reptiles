@@ -8,5 +8,20 @@ services:
       - broker-data:/mosquitto/data
     restart: unless-stopped
 
+  simulator:
+    build: ./support
+    depends_on:
+      - broker
+    environment:
+      SIM_OUTPUT: console,mqtt
+      SIM_SCENARIO: incidents
+      SIM_SPEED: "60"
+      MQTT_URL: mqtt://broker:1883
+      MQTT_NODE_PASSWORD: nodepass
+    logging:
+      options:
+        max-size: "10m"
+    restart: unless-stopped
+
 volumes:
   broker-data:
