@@ -1,0 +1,11 @@
+# nodes : %u = nom du compte = id du node
+pattern read reptiles/+/%u/cmd
+pattern write reptiles/+/%u/#
+
+user front
+topic read reptiles/#
+topic write reptiles/+/+/cmd
+
+user admin
+topic readwrite #
+topic read $SYS/#
