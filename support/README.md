@@ -51,3 +51,22 @@ src/
 ```
 
 Un adaptateur expose `start(sim)` et `stop()`, écoute `sim.on('message')` et transmet les commandes reçues à `sim.handleCommand(cmd)`.
+
+## Sortie MQTT (ajoutée)
+
+```bash
+npm install
+SIM_OUTPUT=console,mqtt MQTT_URL=mqtt://localhost:1883 node src/index.js
+```
+
+`src/outputs/mqtt.js` ouvre une connexion MQTT par node (clientId et login = identifiant du node) :
+
+- publication sur `reptiles/<zone>/<node>/{reading/<capteur>,door,status,event,ack}` (QoS et retain : voir `docs/B-protocole.md`) ;
+- abonnement à `reptiles/<zone>/<node>/cmd`, exécution via `sim.handleCommand()`, l'ack part sur `.../ack` ;
+- Last Will retenu `{"online":false}` sur `.../status`, message de naissance `{"online":true}` à la connexion ;
+- reconnexion automatique toutes les 2 s, messages gardés en tampon mémoire pendant la coupure puis republiés dans l'ordre ;
+- ajout de `v` (version du format) et de `rxTs` (horodatage passerelle) dans chaque message.
+
+Variables d'environnement : `SIM_OUTPUT`, `SIM_SPEED`, `SIM_SCENARIO`, `SIM_SEED`, `SIM_START`, `SIM_FORMAT`, `MQTT_URL`, `MQTT_NODE_PASSWORD`, `MQTT_TOPIC_ROOT`, `MQTT_BUFFER_MAX` (détail : `node src/index.js --help`).
+
+`simulator.js` et `scenarios.js` ne sont pas modifiés.
