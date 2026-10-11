@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supervision - Centre reptiles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Supervision du centre de réhabilitation pour reptiles</h1>
+    <div class="header-info">
+      <span id="simclock">Heure simulée : --</span>
+      <span id="conn" class="conn off">Déconnecté</span>
+    </div>
+  </header>
+
+  <section id="login" class="panel login">
+    <h2>Connexion au broker</h2>
+    <form id="login-form">
+      <label>Broker (WebSocket) <input id="login-url" required></label>
+      <label>Utilisateur <input id="login-user" value="front" required autocomplete="username"></label>
+      <label>Mot de passe <input id="login-pass" type="password" required autocomplete="current-password"></label>
+      <button type="submit">Se connecter</button>
+      <p id="login-error" class="error"></p>
+    </form>
+  </section>
+
+  <main id="app" hidden>
+    <div class="col-main">
+      <section class="panel">
+        <h2>Vue d'ensemble du site</h2>
+        <div id="overview"></div>
+      </section>
+
+      <section id="detail" class="panel" hidden>
+        <div class="detail-head">
+          <h2 id="detail-title"></h2>
+          <button id="detail-close" class="small">Fermer</button>
+        </div>
+        <div id="detail-values"></div>
+        <div class="chart-box"><canvas id="chart"></canvas></div>
+        <h3>Commandes</h3>
+        <div id="detail-cmds"></div>
+      </section>
+
+      <section class="panel">
+        <h2>État des nodes</h2>
+        <div class="table-wrap"><table id="nodes-table"></table></div>
+      </section>
+    </div>
+
+    <div class="col-side">
+      <section class="panel">
+        <div class="detail-head">
+          <h2>Alertes <span id="alert-count" class="badge">0</span></h2>
+        </div>
+        <ul id="alerts" class="alerts"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Commandes envoyées</h2>
+        <ul id="commands" class="commands"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="vendor/mqtt.min.js"></script>
+  <script src="vendor/chart.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

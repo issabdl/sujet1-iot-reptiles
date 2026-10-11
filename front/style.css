@@ -1,0 +1,96 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  background: #eef1f5;
+  color: #1d2733;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #22313f;
+  color: #fff;
+}
+header h1 { font-size: 18px; margin: 0; }
+.header-info { display: flex; gap: 12px; align-items: center; }
+
+.conn { padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 13px; }
+.conn.ok { background: #1e9e5a; }
+.conn.wait { background: #e08a00; }
+.conn.off { background: #c0392b; }
+
+main { display: grid; grid-template-columns: 1fr 380px; gap: 12px; padding: 12px; }
+@media (max-width: 1000px) { main { grid-template-columns: 1fr; } }
+
+.panel { background: #fff; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.panel h2 { font-size: 16px; margin: 0 0 10px; }
+.panel h3 { font-size: 14px; margin: 14px 0 6px; }
+
+.login { max-width: 380px; margin: 40px auto; }
+.login label { display: block; margin-bottom: 10px; }
+.login input { display: block; width: 100%; padding: 6px; margin-top: 3px; }
+.error { color: #c0392b; min-height: 1em; }
+
+button { cursor: pointer; padding: 6px 12px; border: 1px solid #8a99a8; background: #f5f7fa; border-radius: 4px; }
+button:hover { background: #e3e8ee; }
+button.small { padding: 2px 8px; font-size: 12px; }
+
+.zone { margin-bottom: 12px; }
+.zone h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; color: #5a6b7c; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.card {
+  border: 2px solid #1e9e5a;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  background: #fafcfd;
+  font-size: 12px;
+}
+.card:hover { background: #eef4f8; }
+.card .name { font-weight: 700; font-size: 13px; }
+.card .sp { color: #5a6b7c; }
+.card .vals { margin-top: 4px; }
+.card.warn { border-color: #e08a00; background: #fff8ec; }
+.card.crit { border-color: #c0392b; background: #fdeeee; }
+.card.mute { border-color: #8a99a8; background: #eceff2; color: #6b7785; }
+.card.selected { outline: 3px solid #2f6fb3; }
+.door-open { color: #c0392b; font-weight: 700; }
+
+.detail-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.values { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
+.value { background: #f3f6f9; border-radius: 4px; padding: 6px 8px; }
+.value b { font-size: 16px; }
+.chart-box { position: relative; height: 260px; margin-top: 10px; }
+.cmd-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 6px; }
+.cmd-row span { width: 110px; }
+.cmd-row input { width: 70px; padding: 4px; }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 12px; }
+th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid #e1e6eb; white-space: nowrap; }
+th { background: #f3f6f9; }
+.st-ok { color: #1e9e5a; font-weight: 600; }
+.st-mute { color: #e08a00; font-weight: 600; }
+.st-off { color: #c0392b; font-weight: 600; }
+
+.badge { background: #c0392b; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 12px; }
+.alerts, .commands { list-style: none; margin: 0; padding: 0; max-height: 60vh; overflow-y: auto; }
+.alerts li, .commands li { border-left: 4px solid #8a99a8; padding: 5px 8px; margin-bottom: 5px; background: #f7f9fb; font-size: 12px; }
+.alerts li.critique { border-left-color: #c0392b; }
+.alerts li.alerte { border-left-color: #e08a00; }
+.alerts li.info { border-left-color: #2f6fb3; }
+.alerts li.unacked { background: #fff1f0; }
+.alerts li.acked { opacity: .6; }
+.alerts .meta { color: #5a6b7c; }
+.alerts button { float: right; }
+.commands li.ok { border-left-color: #1e9e5a; }
+.commands li.warn { border-left-color: #e08a00; }
+.commands li.ko, .commands li.timeout { border-left-color: #c0392b; }
+.commands li.pending { border-left-color: #2f6fb3; }
